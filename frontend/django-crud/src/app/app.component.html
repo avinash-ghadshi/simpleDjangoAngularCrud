@@ -1,0 +1,28 @@
+<h2>List of Movies</h2>
+<ul>
+<li *ngFor='let movie of movies'>
+  <a href="#" (click)='movieClicked(movie)'>{{ movie.title }}</a>
+</li>
+</ul>
+<hr>
+<div>
+  <table>
+    <tr>
+      <td>Title:</td>
+      <td><input type="text" [(ngModel)] = "selected_movie.title"></td>
+    </tr>
+    <tr>
+      <td>Description:</td>
+      <td><input type="text" [(ngModel)] = "selected_movie.desc"></td>
+    </tr>
+    <tr>
+      <td>Year:</td>
+      <td><input type="text" [(ngModel)] = "selected_movie.year"></td>
+    </tr>
+    <tr>
+      <td><button *ngIf='selected_movie.id' (click)='updateMovie()'>PUT</button></td>
+      <td><button *ngIf='selected_movie.id == undefined' (click)='addMovie()'>POST</button></td>
+      <td><button *ngIf='selected_movie.id' (click)='deleteMovie()'>DELETE</button></td>
+    </tr>
+</table>
+<div>
