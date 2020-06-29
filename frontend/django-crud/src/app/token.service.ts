@@ -14,7 +14,7 @@ export class TokenService {
 
   getToken(): Observable<any> {
 
-    const body = {username: 'avinash', password: '^YHNnhy6'};
+    const body = {username: 'xxxxxx', password: 'XXXXXXX'};
     return this.http.post(this.baseUrl + '/token/obtain/', body, {headers: this.httpHeaders});
 
   }
