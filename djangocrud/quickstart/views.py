@@ -1,5 +1,6 @@
 from rest_framework import viewsets
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 from .serializers import MovieSerializer, MovieMiniSerializer
 from .models import Movie
 
@@ -7,6 +8,7 @@ from .models import Movie
 class MovieViewSet(viewsets.ModelViewSet):
 
     allowed_methods = ('GET', 'POST')
+    permission_classes = (IsAuthenticated,)
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
 

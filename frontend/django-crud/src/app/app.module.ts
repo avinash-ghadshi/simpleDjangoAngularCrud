@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ApiService } from './api.service';
+import { TokenService } from './token.service';
+import { PersistanceService } from "./localstorage.service";
 
 @NgModule({
   declarations: [
@@ -17,7 +19,7 @@ import { ApiService } from './api.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [ApiService],
+  providers: [ApiService, TokenService, PersistanceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

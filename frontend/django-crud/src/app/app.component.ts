@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiService } from './api.service';
+import { TokenService } from './token.service';
+import { PersistanceService } from "./localstorage.service";
 
 @Component({
   selector: 'app-root',
@@ -10,11 +12,34 @@ import { ApiService } from './api.service';
 export class AppComponent {
   movies: any;
   selected_movie: any;
+  token_data: any;
 
-  constructor(private api: ApiService){
+  constructor(private api: ApiService, public token: TokenService, private persistanceService: PersistanceService){
+
+    if(this.token_data == '' || !this.token_data) {
+    	this.getToken();
+    }
     this.getMovies();
     this.selected_movie = [];
+    //persistanceService.set("token", { "userid": 10, "last_login": "10/29/2018" });
+    //console.log(persistanceService.get("user"));
+
   }
+
+  getToken = () => {
+	    	this.token.getToken().subscribe(
+		    data => {
+    			    this.persistanceService.set("token", data);
+			    this.token_data = this.persistanceService.get("token");
+			    //console.dir(this.token_data);
+			    //console.log(this.token_data.access);
+		    },
+		    error => {
+			    console.log("FAILED TO GENERATE TOKEN!");
+		    }
+	    )
+    }    
+
   getMovies = () => {
 	  this.api.getAllMovies().subscribe(
 		  data => {
