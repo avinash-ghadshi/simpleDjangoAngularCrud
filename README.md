@@ -1,6 +1,7 @@
 # simpleDjangoAngularCrud
 
 This is simple application written in Python DRf (Django Rest Framework) and Angular 9.
+**This project needs python 3.6+ to run perfectly.**
 
 ### Pre-requisite
 ***You need to install following packages***
@@ -19,13 +20,15 @@ This is simple application written in Python DRf (Django Rest Framework) and Ang
 ### Project Setup
 
 ```
-$ git clone https://github.com/avinash-ghadshi/simpleDjangoAngularCrud.git
-$ cd simpleDjangoAngularCrud/
-$ . venv/bin/activate
-$ cd djangocrud/
-$ python manage.py runserver > /tmp/sdac.log 2>&1
-$ cd ../frontend/django-crud
-$ ng serve
+$ sudo git clone https://github.com/avinash-ghadshi/simpleDjangoAngularCrud.git
+$ sudo cd simpleDjangoAngularCrud/
+$ sudo pip3 install -r Requirements.txt
+$ sudo cd djangocrud/
+$ sudo python3 manage.py runserver > /tmp/sdac.log 2>&1 &
+$ sudo cd ../frontend/django-crud
+$ sudo npm install
+$ sudo ng build
+$ sudo ng serve
 ```
 
 Hit ``` http://127.0.0.1:4200 ``` on browser
