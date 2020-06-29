@@ -31,6 +31,9 @@ $ sudo ng build
 $ sudo ng serve
 ```
 
+***NOTE:***
+*Change username and password in **frontend/django-crud/src/app/token.service.ts**  according to your django settings.*
+
 Hit ``` http://127.0.0.1:4200 ``` on browser
 
 **Enjoy!!!**
