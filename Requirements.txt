@@ -10,4 +10,4 @@ httpie==1.0.3
 Pillow==6.2.1
 redis==3.3.11
 requests==2.23.0
-virtualenv==20.0.17
+virtualenv==20.36.1
